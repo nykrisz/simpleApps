@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filter User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        #output{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <input id="filterInput" type="text" placeholder="Search...">
+        </div>
+        <div>
+            <ul id="output" class="collection with-header"></ul>     
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
