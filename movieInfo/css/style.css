@@ -1,3 +1,22 @@
 body{
     background: #000;
 }
+
+img{
+    width: 100%;
+    color: #fff;
+    border: 3px solid #fff;
+}
+
+#movies{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 10px;
+    background: #333;
+}
+
+#movies div h5{
+    color: #fff;
+    padding-top: 10px;
+}
