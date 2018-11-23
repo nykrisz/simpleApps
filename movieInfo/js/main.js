@@ -5,8 +5,8 @@ window.onload = function(){
 
 function getMovies(e){
     //form input text
-    let movieName = e.target[0].value;
-
+    //let movieName = e.target[0].value;
+    let movieName = document.getElementById('searchText').value;
     //get data from external api
     axios.get('http://www.omdbapi.com?s='+movieName+'&apikey=thewdb')
         .then(response => {
@@ -16,10 +16,14 @@ function getMovies(e){
 
             movies.forEach(movie => {
                 output +=
-                `<div class="text-center">
-                    <img src="${movie.Poster}" alt="Image not found">
-                    <h5>${movie.Title}</h5>
-                    <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+                `<div class="card m-3 bg-secondary text-light" style="width: 15rem;">
+                    <img class="card-img-top" src="${movie.Poster}" width="240" height="270">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${movie.Title}</h5>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a onclick="movieSelected('${movie.imdbID}')" href="#" class="btn btn-primary">Movie Details</a>
+                    </div>
                 </div>`;
             });
             //add to index.html
@@ -52,13 +56,13 @@ function getMovie(){
                     <div class="col-md-7">
                         <h2>${movie.Title}</h2>
                         <ul class="list-group">
-                            <li class="bd list-group-item bg-dark"><strong>Genre:</strong> ${movie.Genre}</li>
-                            <li class="bd list-group-item bg-dark"><strong>Released:</strong> ${movie.Released}</li>
-                            <li class="bd list-group-item bg-dark"><strong>Rated:</strong> ${movie.Rated}</li>
-                            <li class="bd list-group-item bg-dark"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
-                            <li class="bd list-group-item bg-dark"><strong>Director:</strong> ${movie.Director}</li>
-                            <li class="bd list-group-item bg-dark"><strong>Writer:</strong> ${movie.Writer}</li>
-                            <li class="bd list-group-item bg-dark"><strong>Actors:</strong> ${movie.Actors}</li>
+                            <li class="list-group-item bg-dark"><strong>Genre:</strong> ${movie.Genre}</li>
+                            <li class="list-group-item bg-dark"><strong>Released:</strong> ${movie.Released}</li>
+                            <li class="list-group-item bg-dark"><strong>Rated:</strong> ${movie.Rated}</li>
+                            <li class="list-group-item bg-dark"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
+                            <li class="list-group-item bg-dark"><strong>Director:</strong> ${movie.Director}</li>
+                            <li class="list-group-item bg-dark"><strong>Writer:</strong> ${movie.Writer}</li>
+                            <li class="list-group-item bg-dark"><strong>Actors:</strong> ${movie.Actors}</li>
                         </ul>
                     </div>
                 </div>
@@ -79,20 +83,3 @@ function getMovie(){
             console.log(err);
         });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
