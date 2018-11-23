@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nuber Facts</title>
+    <title>Number Facts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        #output{
+            display: none;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto mt-2">
+                <div class="card bg-info text-center">
+                    <h3 class="card-header">Enter a number and get a random fact</h3>
+                    <div class="mx-auto col-md-6 card-body form-group">
+                        <input class="form-control" type="number" id="#inputNumber" placeholder="Enter a number">
+                    </div>
+                    <div class="card-footer" id="output">
+                        <h2 id="factText" class="card-text"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
