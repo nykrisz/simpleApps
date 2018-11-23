@@ -18,15 +18,38 @@
             <div class="col-md-8 mx-auto mt-2">
                 <div class="card bg-info text-center">
                     <h3 class="card-header">Enter a number and get a random fact</h3>
-                    <div class="mx-auto col-md-6 card-body form-group">
-                        <input class="form-control" type="number" id="#inputNumber" placeholder="Enter a number">
+                    <div class="form-group mx-auto col-md-6 card-body">
+                        <input class="form-control" type="number" id="inputNumber" placeholder="Enter a number">
                     </div>
                     <div class="card-footer" id="output">
-                        <h2 id="factText" class="card-text"></h2>
+                        <h2>Fact</h2>
+                        <p id="factText" class="card-text"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        //get input
+        let inputNum = document.querySelector('#inputNumber');
+        //
+        inputNum.addEventListener('input', getFact);
+
+        function getFact(){
+            let number = inputNum.value;
+            
+            fetch('http://numbersapi.com/'+number)
+            .then(response => response.text())
+            .then(data => {
+                if(number != ''){
+                    output.style.display = 'block';
+                    factText.innerText = data;
+                }else{
+                    output.style.display = 'none';
+                }    
+            })
+            .catch(err => console.log(err));   
+        }
+    </script>
 </body>
 </html>
