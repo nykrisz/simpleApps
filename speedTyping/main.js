@@ -1,63 +1,82 @@
 window.addEventListener('load', init);
 
 const levels = {
-    easy: 5,
-    medium: 3,
-    hard: 1
+    easy: 8,
+    medium: 5,
+    hard: 2
 }
 
-const currentLevel = levels.easy;
-
+const btnStart = document.querySelector('#start-game');
 const currentWord = document.querySelector('#current-word');
 const inputField = document.querySelector('#word-input');
 const seconds = document.querySelector('#seconds');
 const message = document.querySelector('#message');
 const timeDisplay = document.querySelector('#time');
 const scoreDisplay = document.querySelector('#score');
+const difficulty = document.querySelector('#difficulty');
+const statDisplay = document.querySelector('#stats');
+const leadtext = document.querySelector('p.lead');
+const optionsList = document.querySelectorAll('option');
+const words = [];
+const countdownInterval = setInterval(countdown, 1000);
 
+let currentLevel;
 let time = currentLevel;
 let score = 0;
-let isPlaying;
+let isPlaying = false;
+let timeOver = false;
 
-const words = []; // create array here    
-function getWords(){
+btnStart.addEventListener('click', startGame);
+difficulty.addEventListener('input', selectDifficulty);
+
+function init(){
     $.getJSON( "words.json", function( data ) {
         $.each(data, function (index, word) {
-            words.push(word); //push values here
+            words.push(word); 
         });
-        // console.log(words); // see the output here
     });
+    stats.style.display = "none";
+    leadtext.style.display = "none";
 }
 
-//init 
-function init(){
-    getWords();
-    //show number of seconds
+function selectDifficulty(){
+    currentLevel = levels[difficulty.value];
+    btnStart.removeAttribute("disabled");
     seconds.innerHTML = currentLevel;
-    //load random word
+    leadtext.style.display = "";
+}
+
+function initNewGame(){
+    inputField.value = '';
+    message.innerHTML = ''
+    time = currentLevel + 1;
+    isPlaying = true;
+    timeOver = false;
+    stats.style.display = "";
+    inputField.removeAttribute("disabled");
+    inputField.focus();
+    score = 0;
+    scoreDisplay.innerHTML = score;
+}
+
+function startGame(){
+    initNewGame();
     randomWord();
-    //
     inputField.addEventListener('input', matchController);
     //call countdown every sec
-    setInterval(countdown, 1000);
+    countdownInterval;
     //check game status
     setInterval(checkStatus, 50);
 }
 
 function matchController(){
     if(checkWord()){
-        isPlaying =  true;
         time = currentLevel + 1;
         randomWord();
         inputField.value = '';
         score++;
     }
-
-    if(score === -1){
-        scoreDisplay.innerHTML = 0;
-    }else{
-        scoreDisplay.innerHTML = score;
-    }
+    scoreDisplay.innerHTML = score;
 }
 
 //put random word to the screen
@@ -80,15 +99,28 @@ function checkWord(){
 function countdown(){
     if(time > 0){
         time--;
+        btnStart.setAttribute("disabled", "");
+        optionsList.forEach((option) => {
+            option.setAttribute("disabled","");
+        });
     }else{
         isPlaying = false;
+        inputField.setAttribute("disabled", "");
     }
+
     timeDisplay.innerHTML = time;
+    
 }
 
 function checkStatus(){
     if(!isPlaying && time === 0){
-        message.innerHTML = 'Game Over!'
-        score = -1;
+        message.innerHTML = 'Game Over!';
+        timeOver = true;
+    }
+    if(timeOver){
+        btnStart.removeAttribute("disabled");
+        optionsList.forEach((option) => {
+            option.removeAttribute("disabled");
+        });
     }
 }
