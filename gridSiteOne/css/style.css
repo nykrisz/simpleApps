@@ -58,7 +58,8 @@ header{
 
 #main-nav li:hover{
     border-radius: 3px;
-    background: #a2a2a2;
+    background: #ef5f60;
+    color: #fff;
 }
 
 #about h1{
