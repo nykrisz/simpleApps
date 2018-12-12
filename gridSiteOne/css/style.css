@@ -28,7 +28,7 @@ img{
 
 #logo{
     text-indent: -10000px;
-    background: url("/images/logo.png") no-repeat;
+    background: url("images/logo.png") no-repeat;
     background-size: cover;
     width: 2.5rem;
     height: 2.5rem;
@@ -176,18 +176,18 @@ h2 + p{
 }
 
 #main-footer a:nth-child(1){
-    background: url("/icons/facebook.png") no-repeat;
+    background: url("icons/facebook.png") no-repeat;
     background-size: cover;
 }
 
 #main-footer a:nth-child(2){
-    background: url("/icons/twitter.png") no-repeat;
+    background: url("icons/twitter.png") no-repeat;
     background-size: cover;
     margin: 0 0.8rem;
 }
 
 #main-footer a:nth-child(3){
-    background: url("/icons/linkedin.png") no-repeat;
+    background: url("icons/linkedin.png") no-repeat;
     background-size: cover;
 }
 
