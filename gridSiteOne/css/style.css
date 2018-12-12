@@ -43,15 +43,16 @@ header{
     grid-template-columns: 1fr 2fr;
     align-items: center;
 }
-
+/**/
 #main-nav ul{
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
     text-transform: uppercase;
 }
 
-#main-nav ul li{
-    margin-left: 1rem;
+#main-nav li{
     padding: 0.3rem 0.5rem;
 }
 
@@ -169,31 +170,104 @@ h2 + p{
     text-indent: -10000px;
 }
 
-#main-footer a:nth-child(1){
+#main-footer a{
     width: 2rem;
     height: 2rem;
+}
+
+#main-footer a:nth-child(1){
     background: url("/icons/facebook.png") no-repeat;
     background-size: cover;
 }
 
 #main-footer a:nth-child(2){
-    width: 2rem;
-    height: 2rem;
     background: url("/icons/twitter.png") no-repeat;
     background-size: cover;
     margin: 0 0.8rem;
 }
 
 #main-footer a:nth-child(3){
-    width: 2rem;
-    height: 2rem;
     background: url("/icons/linkedin.png") no-repeat;
     background-size: cover;
 }
 
+@media(max-width: 990px){
+    .wrapper{
+        max-width: 760px;
+    }
 
 
+    header{
+        grid-template-columns: 1fr;
+    }
 
+    #logo{
+        justify-self: center;
+        margin-bottom: 0.7rem;
+    }
+}
+
+@media(max-width: 790px){
+    .wrapper{
+        max-width: 550px;
+    }
+
+    header, section{
+        padding: 1.5rem 0;
+    }
+
+    html{
+        font-size: 85%;
+    }
+
+    .boxes{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #do-boxes{
+        grid-template-columns: repeat(2, 1fr);  
+    }
+
+    #do-boxes > div{
+        padding-top: 0.7rem;
+    }
+    
+    #journal-boxes{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 580px){
+    .wrapper{
+        max-width: 350px;
+    }
+
+    html{
+        font-size: 60%;
+    }
+
+    #about h1{
+        font-size: 1.2rem;
+    }
+
+    .boxes{
+        grid-template-columns: 1fr;
+    }
+
+    #do-boxes{
+        grid-template-columns: 1fr;  
+    }
+    
+    #main-footer{
+        padding: 1rem 0;
+        margin-top: 0rem;
+    }
+
+    #main-footer a{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
 
 
 
