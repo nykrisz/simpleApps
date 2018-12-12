@@ -26,10 +26,21 @@ img{
     margin: 0 auto;
 }
 
+#logo{
+    text-indent: -10000px;
+    background: url("/images/logo.png") no-repeat;
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+header, section{
+    padding: 2.5rem 0;
+}
+
 header{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 2.5rem 0;
     align-items: center;
 }
 
@@ -40,11 +51,13 @@ header{
 }
 
 #main-nav ul li{
-    padding-left: 1rem;
+    margin-left: 1rem;
+    padding: 0.3rem 0.5rem;
 }
 
-#about{
-    padding: 2.5rem 0;
+#main-nav li:hover{
+    border-radius: 3px;
+    background: #a2a2a2;
 }
 
 #about h1{
@@ -53,14 +66,11 @@ header{
     color: #a2a2a2;
 }
 
-#our-works{
-    padding: 2.5rem 0;
-}
-
 .button{
     width: 8.5rem;
     text-align: center;
     padding: 0.5rem 0.7rem;
+    margin-bottom: 0.5rem;
     background: #ef5f60;
     border-radius: 6px;
     color: #fff;
@@ -68,11 +78,22 @@ header{
     font-size: 0.8rem;
 }
 
-.headlines{
-    color:#4d4d4d;
+.double-dash{
+    color: #ef5f60;
+}
+
+#works-header{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1rem;
+}
+
+.lead-h2{
+    color: #a2a2a2;
+    padding-bottom: 0.7rem;
+}
+
+h2 + p{
+    padding-bottom: 0.7rem;
 }
 
 .boxes{
@@ -85,19 +106,9 @@ header{
 
 #box-caption{
     color:#4d4d4d;
-    padding-bottom: 0.5rem;
     display: grid;
     justify-items: center;
-}
-
-#what-we-do{
-    padding-bottom: 2.5rem;
-}
-
-#what-we-do h2, 
-#what-we-do > p{
-    color:#4d4d4d;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 #do-boxes{
@@ -108,16 +119,7 @@ header{
 }
 
 #do-boxes h3{
-    padding: 0.8rem 0;
-}
-
-#journal-boxes{
-    padding: 1rem 0;
-}
-
-#journal > h2{
-    padding-bottom: 1rem;
-    color: #4d4d4d;
+    padding: 0.7rem 0;
 }
 
 #journal-boxes{
@@ -164,7 +166,6 @@ header{
 }
 
 #main-footer li{
-    color: #a2a2a2;
     text-indent: -10000px;
 }
 
